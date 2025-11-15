@@ -1,112 +1,228 @@
-ChatRoom-CodeEditor
+# Code Editor & Chat Room 🚀
 
-A full-stack project combining:
+This repository contains two independent projects: a versatile Code Editor built with Next.js and Monaco Editor, and a real-time Chat Room application using the MERN stack (MongoDB, Express.js, React.js, Node.js) with Stream Chat integration.
 
-ChatRoom: A real-time chat application built with React frontend + Node.js backend + MongoDB.
+The **Code Editor** allows users to write and execute code in various languages directly in the browser. It features syntax highlighting, customizable themes, and persistent storage.
 
-CodeEditor: A Next.js frontend code editor with Clerk authentication.
+The **Chat Room** provides a platform for real-time communication between users. It includes features like user authentication, friend requests, and Stream Chat integration for seamless messaging.
 
-Project Structure
-ChatRoom-CodeEditor/
-├─ ChatRoom/
-│  ├─ backend/       # Node.js + Express + MongoDB
-│  │  └─ .env        # Backend environment variables
-│  └─ frontend/      # React frontend
-│     └─ .env        # Frontend environment variables
-└─ CodeEditor/
-   └─ frontend/      # Next.js frontend
-      └─ .env.local  # Clerk and other environment variables
+## ✨ Key Features
 
-ChatRoom Backend
+### Code Editor
+- **Multi-Language Support:** Write and execute code in various programming languages.
+- **Monaco Editor Integration:** Enjoy a rich code editing experience with syntax highlighting and autocompletion.
+- **Customizable Themes:** Choose from different editor themes to suit your preferences.
+- **Persistent Storage:** Your code is saved in local storage, so you don't lose progress.
+- **Adjustable Font Size:** Customize the font size for comfortable coding.
 
-Handles API routes, MongoDB connection, authentication, and JWT.
+### Chat Room
+- **User Authentication:** Secure signup and login functionality.
+- **Friend Requests:** Connect with other users by sending and accepting friend requests.
+- **Real-Time Messaging:** Communicate with friends in real-time using Stream Chat integration.
+- **User Recommendations:** Discover new users to connect with.
+- **Profile Management:** Update your profile information, including avatar, bio, and language preferences.
 
-Environment Variables (ChatRoom/backend/.env)
-PORT=5001
-MONGO_URI=<your-mongodb-connection-string>
-STEAM_API_KEY=<your-steam-api-key>
-STEAM_API_SECRET=<your-steam-api-secret>
-JWT_SECRET_KEY=<your-jwt-secret>
-NODE_ENV=production
+## 🛠️ Tech Stack
 
-Setup & Run
-cd ChatRoom/backend
-npm install
-npm run dev
+### Code Editor
 
+- **Frontend:**
+    - Next.js
+    - React
+    - Tailwind CSS
+    - Monaco Editor (@monaco-editor/react)
+    - Zustand (State Management)
+    - Framer Motion (Animations)
+    - Lucide React (Icons)
+    - Clerk (Authentication)
 
-Backend server runs on PORT defined in .env.
+### Chat Room
 
+- **Frontend:**
+    - React
+- **Backend:**
+    - Node.js
+    - Express.js
+- **Database:**
+    - MongoDB (with Mongoose)
+- **Real-time Communication:**
+    - Stream Chat
+- **Authentication:**
+    - JWT (JSON Web Tokens)
+    - Cookie-parser
+- **Other:**
+    - CORS
+    - bcryptjs (Password Hashing)
+    - dotenv (Environment Variables)
 
-ChatRoom Frontend
+## 📦 Getting Started
 
-React app connecting to the backend API.
+Follow these instructions to set up both the Code Editor and Chat Room projects locally.
 
-Environment Variables (ChatRoom/frontend/.env)
-VITE_STREAM_API_KEY=<your-stream-api-key>
-REACT_APP_API_URL=http://localhost:5001   # Or your deployed backend URL
+### Prerequisites
 
-Setup & Run
-cd ChatRoom/frontend
-npm install
-npm run dev
+- Node.js (v18 or higher)
+- npm or yarn
+- MongoDB installed and running
+- Stream Chat account (for Chat Room)
 
+### Code Editor Installation
 
-Access at http://localhost:3000
+1.  Clone the repository:
 
+    ```bash
+    git clone <repository-url>
+    cd codeEditor
+    ```
 
-CodeEditor Frontend (Next.js)
+2.  Install dependencies:
 
-Next.js code editor with Clerk authentication.
+    ```bash
+    npm install # or yarn install
+    ```
 
-Environment Variables (CodeEditor/frontend/.env.local)
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=<your-clerk-publishable-key>
-CLERK_SECRET_KEY=<your-clerk-secret-key>
-NEXT_PUBLIC_API_URL=<optional: backend API URL>
+3.  Configure environment variables:
 
-Setup & Run
-cd CodeEditor/frontend
-npm install
-npm run dev
+    - Create a `.env.local` file in the `codeEditor` directory.
+    - Add any necessary environment variables (e.g., Clerk publishable key).
 
+### Code Editor Running Locally
 
-Access at http://localhost:3000
+```bash
+npm run dev # or yarn dev
+```
 
-Deployment:
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Project	               Platform	                 Notes
-ChatRoom Frontend   	   Netlify	                 Build directory: ChatRoom/frontend/build
-ChatRoom Backend  	   Render / Railway	        Node.js + MongoDB
-CodeEditor Frontend	   Vercel(recommended)	     Next.js optimized; can use Netlify plugin
+### Chat Room Installation
 
+1.  Clone the repository (if you haven't already):
 
-Scripts
-Project	                Script	                   Description
-ChatRoom Backend	       npm run dev	             Start backend server locally
-ChatRoom Frontend      	 npm run dev	             Start React app locally
-CodeEditor Frontend	    npm run dev	             Start Next.js app locally
-Any frontend	          npm run build	             Build production-ready frontend
+    ```bash
+    git clone <repository-url>
+    cd ChatRoom/backend
+    ```
 
-Notes
+2.  Install backend dependencies:
 
-Environment variables must be set for API keys, Clerk, MongoDB, JWT, etc.
+    ```bash
+    npm install # or yarn install
+    ```
 
-ChatRoom backend must be running for the frontend to work.
+3.  Configure environment variables:
 
-CodeEditor is fully frontend but can optionally call backend APIs via NEXT_PUBLIC_API_URL.
+    - Create a `.env` file in the `ChatRoom/backend` directory.
+    - Add the following environment variables:
 
-Always ignore .env files in .gitignore.
+    ```
+    MONGO_URI=<your_mongodb_connection_string>
+    PORT=5000
+    JWT_SECRET_KEY=<your_jwt_secret_key>
+    STEAM_API_KEY=<your_stream_api_key>
+    STEAM_API_SECRET=<your_stream_api_secret>
+    NODE_ENV=development # or production
+    ```
 
-Contributing:
+4. Install frontend dependencies:
+    ```bash
+    cd ../frontend
+    npm install # or yarn install
+    ```
 
-Fork the repository.
+5. Configure frontend environment variables:
+    - Create a `.env` file in the `ChatRoom/frontend` directory.
+    - Add the following environment variables:
+    ```
+    REACT_APP_STREAM_API_KEY=<your_stream_api_key>
+    ```
 
-Create a feature branch:
-git checkout -b feature/my-feature
+### Chat Room Running Locally
 
+1.  Start the backend server:
 
-Commit your changes:
-git commit -m "Add feature"
+    ```bash
+    cd ChatRoom/backend
+    npm run dev # or yarn dev
+    ```
 
-Push and create a pull request:
-git push origin feature/my-feature
+2.  Start the frontend development server:
+
+    ```bash
+    cd ChatRoom/frontend
+    npm start # or yarn start
+    ```
+
+Open [http://localhost:3000](http://localhost:3000) (or the port specified by the frontend) in your browser to access the Chat Room application.
+
+## 📂 Project Structure
+
+```
+├── codeEditor/
+│   ├── next.config.ts
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── (root)/
+│   │   │   │   ├── _components/
+│   │   │   │   │   ├── EditorPanel.tsx
+│   │   │   │   │   ├── OutputPanel.tsx
+│   │   │   │   │   ├── RunButton.tsx
+│   │   │   │   │   └── EditorPanelSkeleton.tsx
+│   │   │   │   ├── _constants.ts
+│   │   │   │   ├── page.tsx
+│   │   │   ├── layout.tsx
+│   │   ├── store/
+│   │   │   ├── useCodeEditorStore.ts
+│   │   ├── types/
+│   │   │   ├── index.ts
+│   │   ├── middleware.ts
+├── ChatRoom/
+│   ├── backend/
+│   │   ├── src/
+│   │   │   ├── controllers/
+│   │   │   │   ├── auth.controller.js
+│   │   │   │   ├── chat.controller.js
+│   │   │   │   ├── user.controller.js
+│   │   │   ├── lib/
+│   │   │   │   ├── db.js
+│   │   │   │   ├── stream.js
+│   │   │   ├── middleware/
+│   │   │   │   ├── auth.middleware.js
+│   │   │   ├── models/
+│   │   │   │   ├── FriendRequest.js
+│   │   │   │   ├── User.js
+│   │   │   ├── routes/
+│   │   │   │   ├── auth.route.js
+│   │   │   │   ├── chat.route.js
+│   │   │   │   ├── user.route.js
+│   │   │   ├── server.js
+│   ├── frontend/
+│   │   ├── ... (React frontend files)
+```
+
+## 📸 Screenshots
+
+(Add screenshots of the Code Editor and Chat Room here to showcase the user interface and features.)
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1.  Fork the repository.
+2.  Create a new branch for your feature or bug fix.
+3.  Make your changes and commit them with descriptive messages.
+4.  Push your changes to your fork.
+5.  Submit a pull request.
+
+## 📝 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## 📬 Contact
+
+If you have any questions or suggestions, feel free to contact me at [your-email@example.com](mailto:your-email@example.com).
+
+## 💖 Thanks
+
+Thank you for checking out this project! I hope you find it useful and enjoyable.
+
+This is written by [readme.ai](https://readme-generator-phi.vercel.app/) - Generate beautiful README files effortlessly.
