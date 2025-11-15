@@ -1,28 +1,69 @@
 import { useRef, useState, useEffect } from "react";
 import LaserFlow from "../components/LaserFlow.jsx";
-import { ArrowBigLeftDash, ArrowBigRightDash } from "lucide-react";
 
 const testimonialsData = [
   {
+    name: "Sign In Page",
+    designation: "Auth0 / Clerk Authentication",
     quote:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero itaque repellendus, alias temporibus quam suscipit voluptatibus a voluptas ullam dolores aspernatur asperiores ipsam quasi voluptatem nulla eveniet? Libero, tempore laborum.",
-    name: "Sarah Chen",
-    designation: "Product Manager at TechFlow",
-    src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop",
+      "A secure and minimal authentication screen designed for quick and effortless access. Users can sign in or create new accounts using a clean UI optimized for clarity and speed. The flow ensures a frictionless entry into the collaborative coding environment. Perfect for both new and returning users.",
+    src: "/SignInPage.png",
   },
   {
+    name: "User Onboarding",
+    designation: "Profile Setup Interface",
     quote:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero itaque repellendus, alias temporibus quam suscipit voluptatibus a voluptas ullam dolores aspernatur asperiores ipsam quasi voluptatem nulla eveniet? Libero, tempore laborum.",
-    name: "Michael Rodriguez",
-    designation: "CTO at InnovateSphere",
-    src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop",
+      "A guided onboarding process that helps users set up their profiles with tech preferences, learning interests, and personal details. The interface focuses on clarity and ease of completion. This ensures accurate matchmaking and meaningful collaboration opportunities. It lays the foundation for a personalized user journey.",
+    src: "/UserOnboarding.png",
   },
   {
+    name: "Home Dashboard",
+    designation: "Main Landing Page",
     quote:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero itaque repellendus, alias temporibus quam suscipit voluptatibus a voluptas ullam dolores aspernatur asperiores ipsam quasi voluptatem nulla eveniet? Libero, tempore laborum.",
-    name: "Emily Watson",
-    designation: "Operations Director at CloudScale",
-    src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop",
+      "A central hub that presents navigation options, friend suggestions, and recommended collaborators in a structured layout. Users can discover coding partners based on shared interests and activity. The dashboard provides a clean overview of essential features and upcoming opportunities. Designed for quick access and intuitive workflow.",
+    src: "/HomeDashboard.png",
+  },
+  {
+    name: "Notifications Panel",
+    designation: "Alert Management System",
+    quote:
+      "A neatly organized notification center displaying friend requests, system alerts, and recent activities. Users can manage preferences to control what updates they receive. The layout keeps important events visible without overwhelming the interface. Ideal for staying informed and maintaining communication awareness.",
+    src: "/NotificationsPanel.png",
+  },
+  {
+    name: "Friends List",
+    designation: "Connection Management",
+    quote:
+      "A dedicated section for managing active coding partners and accepted connections. Users can view detailed profiles, check online availability, and initiate conversations. The layout maintains clarity while supporting quick navigation between contacts. It enhances collaboration by simplifying relationship management.",
+    src: "/FriendsList.png",
+  },
+  {
+    name: "Theme Toggle",
+    designation: "28-Theme Customization Panel",
+    quote:
+      "A powerful customization panel offering 28 unique UI themes ranging from minimal to vibrant aesthetics. Users can instantly switch themes to personalize their workspace. Each theme provides a distinct visual style tailored for different moods and preferences. Perfect for enhancing comfort during long coding sessions.",
+    src: "/ThemeToggle.png",
+  },
+  {
+    name: "Code Editor",
+    designation: "Multi-language IDE",
+    quote:
+      "A fully featured editor supporting 10 programming languages, multiple themes, and typography adjustments. Its clean design enhances readability and focus while coding. Integration with Clerk ensures secure, personalized sessions across devices. Built to deliver a seamless and productive development experience.",
+    src: "/CodeEditor.png",
+  },
+  {
+    name: "Chat Interface",
+    designation: "Real-time Messaging",
+    quote:
+      "A modern communication interface supporting real-time messaging, media sharing, and threaded replies. Users can react to messages and organize conversations easily. The layout promotes clear, distraction-free discussions between collaborators. Ideal for technical exchanges and teamwork.",
+    src: "/ChatInterface.png",
+  },
+  {
+    name: "Video Call Interface",
+    designation: "WebRTC Communication",
+    quote:
+      "A reliable calling interface supporting high-quality video, audio, and live screen sharing. Users can engage in pair programming, debugging sessions, or quick catch-ups. Real-time reactions enhance interactivity during calls. Designed for smooth, low-latency communication in collaborative projects.",
+    src: "/VideoCallInterface.png",
   },
 ];
 
@@ -30,21 +71,16 @@ function LearnMorePage() {
   const revealImgRef = useRef(null);
   const [active, setActive] = useState(0);
 
-  const handleNext = () =>
-    setActive((prev) => (prev + 1) % testimonialsData.length);
-  const handlePrev = () =>
-    setActive(
-      (prev) => (prev - 1 + testimonialsData.length) % testimonialsData.length
-    );
-
   useEffect(() => {
-    const interval = setInterval(handleNext, 5000);
+    const interval = setInterval(
+      () => setActive((prev) => (prev + 1) % testimonialsData.length),
+      7000
+    );
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="w-full h-screen flex flex-col bg-[#060010] rounded-[35px] overflow-hidden relative">
-      {/* Mouse reveal and inner content container */}
       <div
         className="relative w-full h-full"
         onMouseMove={(e) => {
@@ -66,7 +102,7 @@ function LearnMorePage() {
           }
         }}
       >
-        {/* Laser background */}
+        {/* Laser BG */}
         <div className="absolute inset-x-0 top-0 h-[50vh] z-10">
           <LaserFlow
             horizontalBeamOffset={0.1}
@@ -95,7 +131,7 @@ function LearnMorePage() {
           }}
         />
 
-        {/* Spotlight / Reveal image */}
+        {/* Spotlight reveal */}
         <img
           ref={revealImgRef}
           src="/path/to/image.jpg"
@@ -113,7 +149,7 @@ function LearnMorePage() {
           }}
         />
 
-        {/* Cards Slider */}
+        {/* Slider */}
         <div className="absolute top-[30%] left-1/2 -translate-x-1/2 w-3/4 max-w-[1100px] p-7 bg-[#060010] rounded-2xl border-2 border-pink-400 text-white z-40 shadow-[0_8px_30px_rgba(0,0,0,0.6)]">
           {testimonialsData.map((t, i) =>
             i === active ? (
@@ -121,33 +157,26 @@ function LearnMorePage() {
                 key={i}
                 className="transition-opacity transition-transform duration-500"
               >
+                {/* NAME */}
+                <h3 className="font-bold text-xl">{t.name}</h3>
+
+                {/* DESIGNATION */}
+                <p className="text-sm text-gray-400 mb-3">{t.designation}</p>
+
+                {/* FLEXIBLE IMAGE */}
                 <img
                   src={t.src}
                   alt={t.name}
-                  className="w-full h-64 object-cover rounded-xl mb-4"
+                  className="w-full max-h-[300px] object-contain rounded-xl mb-4"
                 />
-                <p className="text-lg">{t.quote}</p>
-                <h3 className="font-bold mt-3">{t.name}</h3>
-                <p className="text-sm text-gray-400">{t.designation}</p>
+
+                {/* QUOTE */}
+                <p className="text-base leading-relaxed opacity-90">
+                  {t.quote}
+                </p>
               </div>
             ) : null
           )}
-
-          {/* Navigation */}
-          <div className="flex gap-2 justify-end mt-4">
-            <button
-              onClick={handlePrev}
-              className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-gray-600 transition"
-            >
-              <ArrowBigLeftDash size={18} color="white" />
-            </button>
-            <button
-              onClick={handleNext}
-              className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-gray-600 transition"
-            >
-              <ArrowBigRightDash size={18} color="white" />
-            </button>
-          </div>
         </div>
       </div>
     </div>
