@@ -219,7 +219,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## 📬 Contact
 
-If you have any questions or suggestions, feel free to contact me at [your-email@example.com](mailto:charliepraveen535@gmail.com).
+If you have any questions or suggestions, feel free to contact me at [charliepraveen535@gmail.com](mailto:charliepraveen535@gmail.com).
 
 ## 💖 Thanks
 
