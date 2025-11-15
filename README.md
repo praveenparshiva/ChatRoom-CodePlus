@@ -219,10 +219,8 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## 📬 Contact
 
-If you have any questions or suggestions, feel free to contact me at [your-email@example.com](mailto:your-email@example.com).
+If you have any questions or suggestions, feel free to contact me at [your-email@example.com](mailto:charliepraveen535@gmail.com).
 
 ## 💖 Thanks
 
 Thank you for checking out this project! I hope you find it useful and enjoyable.
-
-This is written by [readme.ai](https://readme-generator-phi.vercel.app/) - Generate beautiful README files effortlessly.
